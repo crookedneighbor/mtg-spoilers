@@ -172,6 +172,43 @@ describe('SpoilerHandle', function () {
     })
   })
 
+  it('can specify a function to call when timeout occurs', function () {
+    let onTimeout = this.sandbox.stub()
+    let handle = new SpoilerHandle({
+      onTimeout,
+      onNewSpoilers: this.sandbox.stub()
+    })
+    return handle.initialize('dom').then(() => {
+      this.request.resetHistory()
+      this.clock.tick(510)
+
+      expect(onTimeout.callCount).to.equal(0)
+
+      this.clock.tick(86400000)
+
+      expect(onTimeout.callCount).to.equal(1)
+    })
+  })
+
+  it('does not call onTimeout when cancel is called', function () {
+    let onTimeout = this.sandbox.stub()
+    let handle = new SpoilerHandle({
+      onTimeout,
+      onNewSpoilers: this.sandbox.stub()
+    })
+    return handle.initialize('dom').then(() => {
+      this.request.resetHistory()
+      this.clock.tick(510)
+
+      expect(onTimeout.callCount).to.equal(0)
+      handle.cancel()
+
+      this.clock.tick(1000)
+
+      expect(onTimeout.callCount).to.equal(0)
+    })
+  })
+
   it('can specify Inifity for timeout', function () {
     let handle = new SpoilerHandle({
       timeout: Infinity,

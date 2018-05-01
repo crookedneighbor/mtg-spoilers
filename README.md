@@ -56,6 +56,21 @@ pollForSpoilers('dom', {
 
 If you only want the polling to stop by manually calling `cancel` on the handler, pass `Inifinity` for the value of `timeout`.
 
+### options.onTimeout
+
+An optional function that will be called when the polling times out. Will not fire when calling `cancel` on the handler.
+
+```js
+pollForSpoilers('dom', {
+  onTimeout: function () {
+    // alert user that polling has stopped
+  },
+  onNewSpoilers: (spoilers) => { /* your function here */ }
+}).then((handler) => {
+  /* save handler */
+})
+```
+
 ### options.scryfallClientOptions
 
 Under the hood, `mtg-spoilers` uses [`scryfall-client`](https://www.npmjs.com/package/scryfall-client) to make requests to the Scryfall API. [Configuration](https://github.com/crookedneighbor/scryfall-client#additional-options) for the client can be passed as `options.scryfallClientOptions`.
