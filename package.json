@@ -4,6 +4,9 @@
   "description": "A module for getting the latest mtg spoilers",
   "main": "index.js",
   "scripts": {
+    "build": "browserify docs/src/index.js > docs/script.js",
+    "build:watch": "watchify docs/src/index.js -o docs/script.js",
+    "docs": "http-server docs/",
     "lint": "standard --verbose | snazzy",
     "pretest": "npm run lint",
     "test": "npm run test:unit",
@@ -20,12 +23,15 @@
     "scryfall-client": "^0.3.0"
   },
   "devDependencies": {
+    "browserify": "^16.2.0",
     "chai": "^4.1.2",
+    "http-server": "^0.11.1",
     "mocha": "^5.1.1",
     "sinon": "^4.5.0",
     "sinon-chai": "^3.0.0",
     "snazzy": "^7.1.1",
-    "standard": "^11.0.1"
+    "standard": "^11.0.1",
+    "watchify": "^3.11.0"
   },
   "standard": {
     "globals": [

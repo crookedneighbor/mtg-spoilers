@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>MTG Spoilers</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div id="set-wrapper" class="column">
+            <div class="field">
+              <div class="select">
+                <select id="sets">
+                  <option disabled selected>Select Set</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="columns">
+          <div id="cards-wrapper" class="column">
+          </div>
+        </div>
+      </div>
+    </section>
+    <div id="growl-notification" class="notification is-info">
+      <button class="delete"></button>
+      <div id="growl-body"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
