@@ -1,0 +1,43 @@
+{
+  "name": "mtg-spoilers",
+  "version": "0.0.0",
+  "description": "A module for getting the latest mtg spoilers",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard --verbose | snazzy",
+    "pretest": "npm run lint",
+    "test": "npm run test:unit",
+    "test:unit": "mocha test/**/*.js"
+  },
+  "keywords": [
+    "mtg",
+    "magic the gathering",
+    "scryfall"
+  ],
+  "author": "blade <blade@crookedneighbor.com>",
+  "license": "MIT",
+  "dependencies": {
+    "scryfall-client": "^0.3.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1",
+    "sinon": "^4.5.0",
+    "sinon-chai": "^3.0.0",
+    "snazzy": "^7.1.1",
+    "standard": "^11.0.1"
+  },
+  "standard": {
+    "globals": [
+      "afterEach",
+      "before",
+      "beforeEach",
+      "describe",
+      "expect",
+      "it"
+    ],
+    "ignore": [
+      "docs/script.js"
+    ]
+  }
+}
