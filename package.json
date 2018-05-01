@@ -1,6 +1,6 @@
 {
   "name": "mtg-spoilers",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A module for getting the latest mtg spoilers",
   "main": "index.js",
   "scripts": {
