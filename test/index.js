@@ -24,14 +24,14 @@ describe('mtg-spoilers', function () {
 
   it('throws an error if onNewSpoilers option is not a function', function () {
     expect(() => {
-      pollForSpoilers('dom', {onNewSpoilers: {}})
+      pollForSpoilers('dom', { onNewSpoilers: {} })
     }).to.throw('Must supply an onNewSpoilers function in options.')
   })
 
   it('resolves with a SpoilerHandle', function () {
     this.timeout(10000)
 
-    return pollForSpoilers('dom', {onNewSpoilers: this.sandbox.stub}).then((handle) => {
+    return pollForSpoilers('dom', { onNewSpoilers: this.sandbox.stub }).then((handle) => {
       expect(handle).to.be.an.instanceof(SpoilerHandle)
 
       handle.cancel()
