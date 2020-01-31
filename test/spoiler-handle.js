@@ -72,7 +72,7 @@ describe('SpoilerHandle', function () {
   })
 
   it('can specify iteration for spoiler polling', function () {
-    let handle = new SpoilerHandle({
+    const handle = new SpoilerHandle({
       iteration: 500,
       onNewSpoilers: this.sandbox.stub()
     })
@@ -99,7 +99,7 @@ describe('SpoilerHandle', function () {
       this.request.resetHistory()
       this.clock.tick(86400000)
 
-      let savedCallCount = this.request.callCount
+      const savedCallCount = this.request.callCount
       expect(savedCallCount).to.be.greaterThan(20)
 
       this.clock.tick(86400000)
@@ -154,7 +154,7 @@ describe('SpoilerHandle', function () {
   })
 
   it('can specify custom timeout', function () {
-    let handle = new SpoilerHandle({
+    const handle = new SpoilerHandle({
       timeout: 500,
       onNewSpoilers: this.sandbox.stub()
     })
@@ -162,7 +162,7 @@ describe('SpoilerHandle', function () {
       this.request.resetHistory()
       this.clock.tick(510)
 
-      let savedCallCount = this.request.callCount
+      const savedCallCount = this.request.callCount
 
       this.clock.tick(86400000)
 
@@ -173,8 +173,8 @@ describe('SpoilerHandle', function () {
   })
 
   it('can specify a function to call when timeout occurs', function () {
-    let onTimeout = this.sandbox.stub()
-    let handle = new SpoilerHandle({
+    const onTimeout = this.sandbox.stub()
+    const handle = new SpoilerHandle({
       onTimeout,
       onNewSpoilers: this.sandbox.stub()
     })
@@ -191,8 +191,8 @@ describe('SpoilerHandle', function () {
   })
 
   it('does not call onTimeout when cancel is called', function () {
-    let onTimeout = this.sandbox.stub()
-    let handle = new SpoilerHandle({
+    const onTimeout = this.sandbox.stub()
+    const handle = new SpoilerHandle({
       onTimeout,
       onNewSpoilers: this.sandbox.stub()
     })
@@ -210,7 +210,7 @@ describe('SpoilerHandle', function () {
   })
 
   it('can specify Inifity for timeout', function () {
-    let handle = new SpoilerHandle({
+    const handle = new SpoilerHandle({
       timeout: Infinity,
       onNewSpoilers: this.sandbox.stub()
     })
@@ -218,7 +218,7 @@ describe('SpoilerHandle', function () {
       this.request.resetHistory()
 
       for (let i = 0; i < 5; i++) {
-        let savedCallCount = this.request.callCount
+        const savedCallCount = this.request.callCount
         this.clock.tick(86400000)
         expect(this.request.callCount).to.be.greaterThan(savedCallCount)
       }
@@ -254,7 +254,7 @@ describe('SpoilerHandle', function () {
       this.handle.cancel()
       done()
     }
-    let handler = new SpoilerHandle({
+    const handler = new SpoilerHandle({
       onNewSpoilers
     })
 
@@ -285,7 +285,7 @@ describe('SpoilerHandle', function () {
       this.handle.cancel()
       done()
     }
-    let handler = new SpoilerHandle({
+    const handler = new SpoilerHandle({
       onNewSpoilers
     })
 
@@ -314,7 +314,7 @@ describe('SpoilerHandle', function () {
       this.handle.cancel()
       done()
     }
-    let handler = new SpoilerHandle({
+    const handler = new SpoilerHandle({
       onNewSpoilers
     })
 
